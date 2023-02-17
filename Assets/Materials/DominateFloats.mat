@@ -81,6 +81,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - PulseSpeed: 3
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -108,7 +109,8 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - Color_59156CAE: {r: 2, g: 0, b: 1.741176, a: 0}
-    - FresnelColor: {r: 2, g: 0, b: 1.741176, a: 0}
+    - FresnelColor: {r: 0.102296144, g: 0.024241397, b: 0.7341676, a: 0}
+    - RimPower: {r: 2, g: 8, b: 0, a: 0}
     - _BASE_COLOR: {r: 0, g: 0, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 0.15566039, b: 0.15566039, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}

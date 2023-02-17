@@ -139,8 +139,8 @@ Material:
     - _MoonColor: {r: 0.2647059, g: 0.2647059, b: 0.2647059, a: 1}
     - _MoonComputedPositionData: {r: 0.6492654, g: -0.19, b: 0.73644716, a: 0}
     - _MoonComputedRotationData: {r: 0.19116211, g: 7.0057516, b: 0, a: 0}
-    - _StarLayer1Color: {r: 0.84666955, g: 0.8718381, b: 0.99264705, a: 1}
-    - _StarLayer2Color: {r: 0.7688679, g: 0.7905771, b: 1, a: 1}
+    - _StarLayer1Color: {r: 0.7073247, g: 0.72265905, b: 0.8018868, a: 1}
+    - _StarLayer2Color: {r: 0.5730242, g: 0.5905421, b: 0.745283, a: 1}
     - _StarLayer3Color: {r: 0.7688679, g: 0.9579422, b: 1, a: 1}
 --- !u!28 &28019144576412720
 Texture2D:

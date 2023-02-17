@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Blobs
-  m_Shader: {fileID: -6465566751694194690, guid: 3db34ed9f6b9f484196842f6c3908ae1,
+  m_Name: SecondaryFloats
+  m_Shader: {fileID: -6465566751694194690, guid: 659d0654a1926451f9b527d871af18e0,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -49,12 +49,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - AddAlpha: 0
-    - BlendOpacity: 0.5
-    - BlendSharpness: 2
-    - DivideColor: 1
-    - FresnelPower: 1
-    - NoiseSubtraction: 0
+    - PulseSpeed: 3
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -77,11 +72,13 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
+    - FresnelColor: {r: 0.28235295, g: 0.1764706, b: 0.03137255, a: 0}
+    - RimPower: {r: 1, g: 8, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
---- !u!114 &6082258922170050522
+--- !u!114 &3288906579437014607
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
