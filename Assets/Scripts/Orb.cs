@@ -10,6 +10,14 @@ public class Orb : MonoBehaviour
     public float frequencyY = 0.5f;
     public float degreesPerSecond = 3.0f;
 
+    // Data Script
+    public TestData testData;
+    public ColorPresets colorPresets; 
+
+    // Data Storage Variables
+    int randomFrequency;
+    int randomType;
+
     // Position Storage Variables
     Vector3 posOffset = new Vector3();
     Vector3 tempPos = new Vector3();
@@ -21,16 +29,11 @@ public class Orb : MonoBehaviour
     [SerializeField, Range(1f,5f)]
     private float noiseReduction = 3f;
 
-    // Color Scheme
-    private Vector4 SleepyColor = new Vector4(22, 19, 118, 0);
-    private Vector4 MeditativeColor = new Vector4(24, 62, 118, 0);
-    private Vector4 RelaxedColor = new Vector4(26, 105, 118, 0);
-    private Vector4 ActiveColor = new Vector4(229, 224, 53, 0);
-    private Vector4 AlertColor = new Vector4(225, 28, 0, 0);
-
     // Lerp Storage Variables
     private float lerpStep = 0.01f;
     private Vector4 lerpedColor; 
+    private Vector4 currentColor;
+    private Vector4 nextColor; 
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +42,7 @@ public class Orb : MonoBehaviour
         posOffset = transform.position;
 
         // Set VFX properties
-        orbEffect.SetVector4("OrbColor", SleepyColor * 0.002f);
+        orbEffect.SetVector4("OrbColor", colorPresets.orbColors[4] * 0.002f);
         orbEffect.SetFloat("NoiseReduction", noiseReduction);
 
     }
@@ -57,15 +60,29 @@ public class Orb : MonoBehaviour
 
         // Placeholder trigger for color change 
         if (Input.GetKeyDown (KeyCode.Space)){
-            StartCoroutine(Update54());
+
+            //currentColor = orbEffect.GetVector4("OrbColor");
+            randomType = testData.randomDominateType;
+
+            if (randomType - 1 == -1){
+                currentColor = colorPresets.orbColors[4];
+            }else{
+                currentColor = colorPresets.orbColors[randomType-1];
+            }
+            nextColor = colorPresets.orbColors[randomType];
+
+            Debug.Log("currentColor" + currentColor);
+            Debug.Log("nextColor" + nextColor);
+
+            StartCoroutine(UpdateColor(currentColor, nextColor));
         }
 
     }
 
-    IEnumerator Update54(){
+    IEnumerator UpdateColor(Vector4 currentColor, Vector4 nextColor){
         for (int i = 0; i < 100; i++){
             
-            lerpedColor = Vector4.Lerp(SleepyColor, MeditativeColor, i*lerpStep);
+            lerpedColor = Vector4.Lerp(currentColor, nextColor, i*lerpStep);
             
             orbEffect.SetVector4("OrbColor", lerpedColor * 0.002f);
 

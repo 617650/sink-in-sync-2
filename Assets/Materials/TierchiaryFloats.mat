@@ -73,7 +73,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _LerpCount: 0
+    - _LerpCount: 14
     - _LerpStep: 0.01
     - _Metallic: 0
     - _OcclusionStrength: 1

@@ -9,22 +9,25 @@ public class DominateTrail : MonoBehaviour
     [SerializeField]
     private VisualEffect dominateTrail;
 
-    // Color Scheme
-    private Vector4 SleepyColor = new Vector4(18, 14, 166, 0);
-    private Vector4 MeditativeColor = new Vector4(24, 62, 118, 0);
-    private Vector4 RelaxedColor = new Vector4(26, 105, 118, 0);
-    private Vector4 ActiveColor = new Vector4(229, 224, 53, 0);
-    private Vector4 AlertColor = new Vector4(225, 28, 0, 0);
+    // Data Script
+    public TestData testData;
+    public ColorPresets colorPresets; 
+
+    // Data Storage Variables
+    int randomFrequency;
+    int randomType;
 
     // Lerp Storage Variables
     private float lerpStep = 0.01f;
     private Vector4 lerpedColor; 
+    private Vector4 currentColor;
+    private Vector4 nextColor; 
 
     // Start is called before the first frame update
     void Start()
     {
         // Set VFX properties
-        dominateTrail.SetVector4("Color", SleepyColor * 0.005f);
+        dominateTrail.SetVector4("Color", colorPresets.trailColors[4] * 0.005f);
     }
 
     // Update is called once per frame
@@ -32,14 +35,25 @@ public class DominateTrail : MonoBehaviour
     {
         // Placeholder trigger for color change 
         if (Input.GetKeyDown (KeyCode.Space)){
-            StartCoroutine(Update54());
+            
+            //urrentColor = dominateTrail.GetVector4("Color");
+            randomType = testData.randomDominateType;
+
+            if (randomType - 1 < 0){
+                currentColor = colorPresets.trailColors[4];
+            }else{
+                currentColor = colorPresets.trailColors[randomType-1];
+            }
+            nextColor = colorPresets.trailColors[randomType];
+
+            StartCoroutine(UpdateColor(currentColor, nextColor));
         }
     }
 
-    IEnumerator Update54(){
+    IEnumerator UpdateColor(Vector4 currentColor, Vector4 nextColor){
         for (int i = 0; i < 100; i++){
             
-            lerpedColor = Vector4.Lerp(SleepyColor, MeditativeColor, i*lerpStep);
+            lerpedColor = Vector4.Lerp(currentColor, nextColor, i*lerpStep);
             
             dominateTrail.SetVector4("Color", lerpedColor * 0.005f);
 

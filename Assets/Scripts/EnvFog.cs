@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class EnvFog : MonoBehaviour
 {
+    // Data Script
+    public TestData testData;
+    public ColorPresets colorPresets; 
 
-    // Color definitions
-    private Color SleepyColor = new Color32(77, 60, 152, 225);
-    private Color MeditativeColor = new Color32(24, 62, 118, 225);
-    private Color RelaxedColor = new Color32(26, 105, 118, 225);
-    private Color ActiveColor = new Color32(229, 224, 53, 225);
-    private Color AlertColor = new Color32(225, 28, 0, 225);
+    // Data Storage Variables
+    int randomFrequency;
+    int randomType;
+    private Color nextColor; 
 
     // Material Storage Variables
     public ParticleSystem.MainModule envFog;
@@ -20,7 +21,7 @@ public class EnvFog : MonoBehaviour
     {
         envFog = GetComponent<ParticleSystem>().main;
 
-        envFog.startColor = SleepyColor; 
+        envFog.startColor = colorPresets.envFogColors[4]; 
     }
 
     // Update is called once per frame
@@ -28,7 +29,11 @@ public class EnvFog : MonoBehaviour
     {
         // Placeholder trigger for color change 
         if (Input.GetKeyDown (KeyCode.Space)){
-            envFog.startColor = MeditativeColor; 
+
+            randomType = testData.randomDominateType;
+            nextColor = colorPresets.envFogColors[randomType];
+
+            envFog.startColor = nextColor; 
         }
     }
 }
