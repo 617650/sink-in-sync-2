@@ -71,8 +71,8 @@ public class Orb : MonoBehaviour
             }
             nextColor = colorPresets.orbColors[randomType];
 
-            Debug.Log("currentColor" + currentColor);
-            Debug.Log("nextColor" + nextColor);
+            // Debug.Log("currentColor" + currentColor);
+            // Debug.Log("nextColor" + nextColor);
 
             StartCoroutine(UpdateColor(currentColor, nextColor));
         }

@@ -34,12 +34,15 @@ public class ColorPresets : MonoBehaviour
 
     // EnvFog
     public Color[] envFogColors = new Color[] { 
-        new Color32(217, 181, 53, 255), // Alert
+        new Color32(186, 180, 82, 255), // Alert
         new Color32(122, 143, 86, 255), // Active
         new Color32(26, 105, 118, 225), // Relaxed
         new Color32(24, 62, 118, 225), // Meditative
-        new Color32(77, 60, 152, 225) // Sleepy
+        new Color32(76, 59, 152, 225) // Sleepy
     };
+
+    // Frequency Presets
+    public int[] dominateFrequency = new int[] { 6, 5, 3, 2, 1 };
 
     // Particles
 

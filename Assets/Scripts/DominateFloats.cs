@@ -49,7 +49,7 @@ public class DominateFloats : MonoBehaviour
         fresnelPulse.SetColor("_NextColor", colorPresets.floatColors[4]);
         
         fresnelPulse.SetFloat("_LerpCount", 0f);
-        fresnelPulse.SetFloat("_PulseSpeed", 3f);
+        fresnelPulse.SetFloat("_PulseSpeed", 1f);
 
     }
 
@@ -77,16 +77,22 @@ public class DominateFloats : MonoBehaviour
 
             // Get random color to change to
             randomType = testData.randomDominateType;
-            nextColor = colorPresets.floatColors[randomType];
+            randomFrequency = testData.randomDominateFrequency; 
+
+            if (randomType - 1 == -1){
+                nextColor = colorPresets.floatColors[4];
+                fresnelPulse.SetFloat("_PulseSpeed", colorPresets.dominateFrequency[4]);
+            }else{
+                nextColor = colorPresets.floatColors[randomType-1];
+                fresnelPulse.SetFloat("_PulseSpeed", colorPresets.dominateFrequency[randomType-1]);
+            }
+            //nextColor = colorPresets.floatColors[randomType];
 
             StartCoroutine(UpdateColor(nextColor));
 
             StartCoroutine(SetCurrentState());
-        }
 
-        // Placeholder trigger for pulse speed change
-        pulseSpeed = 3f;
-        fresnelPulse.SetFloat("_PulseSpeed", pulseSpeed);
+        }
         
     }
 
