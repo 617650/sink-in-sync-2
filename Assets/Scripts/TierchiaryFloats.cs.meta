@@ -3,7 +3,8 @@ guid: d4e6b545955044bfeb421f63453d300d
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - fresnelPulse: {fileID: 2100000, guid: 70e47128db94647d38ecc12dd06f642b, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

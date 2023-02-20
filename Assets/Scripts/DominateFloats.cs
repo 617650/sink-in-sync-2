@@ -18,6 +18,10 @@ public class DominateFloats : MonoBehaviour
     // Start by moving up OR down : randomizer
     int randomInt;
 
+    // Data randomizer
+    int randomFrequency;
+    int randomType;
+
     // Material Storage Variables
     public Material fresnelPulse; // refers to the shader on the material
     private float lerpCount;
@@ -30,9 +34,11 @@ public class DominateFloats : MonoBehaviour
     public float dominateBand;
 
     // Color definitions
-    private Color32 SleepyColor = new Color32(25, 18, 191, 0);
-    private Color32 MeditativeColor = new Color32(18, 191, 113, 0);
-
+    private Color32 SleepyColor = new Color32(22, 19, 118, 0);
+    private Color32 MeditativeColor = new Color32(24, 62, 118, 0);
+    private Color32 RelaxedColor = new Color32(26, 105, 118, 0);
+    private Color32 ActiveColor = new Color32(229, 224, 53, 0);
+    private Color32 AlertColor = new Color32(225, 28, 0, 0);
     
     // Start is called before the first frame update
     void Start()
@@ -117,16 +123,5 @@ public class DominateFloats : MonoBehaviour
         fresnelPulse.SetFloat("_LerpCount", 0f);
         lerpCount = fresnelPulse.GetFloat("_LerpCount");
     }
-
-    // IEnumerator Update54(){
-    //     fresnelPulse.SetColor("_NextColor", MeditativeColor);
-    //     yield return new WaitForSeconds(Mathf.PI);
-    //     fresnelPulse.SetColor("_FresnelColor", MeditativeColor);
-    // }
-    // IEnumerator Update45(){
-    //     fresnelPulse.SetColor("_NextColor", SleepyColor);
-    //     yield return new WaitForSeconds(Mathf.PI);
-    //     fresnelPulse.SetColor("_FresnelColor", SleepyColor);
-    // }
 
 }
